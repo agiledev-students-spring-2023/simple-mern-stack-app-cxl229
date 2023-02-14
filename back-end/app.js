@@ -78,5 +78,30 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
+// route to the about us page, with text and image
+app.get('/aboutus', (req, res) => {
+  // send json with information
+  try {
+    res.json({
+      text: "I'm Charlotte, I am 20 years old and a senior at NYU. My major is computer science and my minor is digital art and design. " +
+            "I've been programming for about six years now. I'm from New Jersey and I really like cats. I have a striped black cat at home, and he is very awesome. " +
+            "In my free time, I like to read, write, draw, and do game development. I hope to apply my creative talents to programming in order to " +
+            "create interesting, unique, fun, and useful software. I'm a grader for the data structures class here at NYU, and the president of the 3D printing club. " +
+            "Social causes I care about include sustainability and girls in STEM. I'm skilled not only in coding, but also in graphic design, art, and writing. " +
+            "My favorite color is pink, my favorite food is hot pot, my favorite movie is 'The Secret World of Arrietty', and my favorite song is 'Sad Machine'. " +
+            "I can play the flute and piccolo. I like Broadway musicals and fantasy video games. I spend most of my time studying and doing homework. " +
+            "I'll be graduating at the end of this semester!",
+      image: '/about.jpg',
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to load about us page',
+    })
+  }
+})
+
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!

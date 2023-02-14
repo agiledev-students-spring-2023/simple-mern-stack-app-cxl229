@@ -37,3 +37,8 @@ html {
 .App-link {
   color: #61dafb;
 }
+
+.aboutImage {
+  display: inline-block;
+  width: 300px;
+}
